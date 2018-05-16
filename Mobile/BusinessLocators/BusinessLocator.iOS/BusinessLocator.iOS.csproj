@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{B46F8483-AA13-443B-9720-CC952DBB7BA6}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BusinessLocator.iOS</RootNamespace>
+    <AssemblyName>BusinessLocator.iOS</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <IOSDebuggerPort>27127</IOSDebuggerPort>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <DeviceSpecificBuild>false</DeviceSpecificBuild>
+    <MtouchVerbosity>
+    </MtouchVerbosity>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchVerbosity>
+    </MtouchVerbosity>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchVerbosity>
+    </MtouchVerbosity>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <IOSDebuggerPort>24452</IOSDebuggerPort>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchVerbosity>
+    </MtouchVerbosity>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="Google.Maps">
+      <HintPath>..\packages\Xamarin.Google.iOS.Maps.2.5.0\lib\Xamarin.iOS10\Google.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="PDRating">
+      <HintPath>..\Components\pdreview-2.0.2\lib\ios-unified\PDRating.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Mobile.Extensions">
+      <HintPath>..\Common Library\Mobile.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Mobile.Extensions.iOS">
+      <HintPath>..\Common Library\Mobile.Extensions.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Settings.2.5.4\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings">
+      <HintPath>..\packages\Xam.Plugins.Settings.2.5.4\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-20x20%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-20x20%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-20x20%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-29x29%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-29x29%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-29x29%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-40x40%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-40x40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-40x40%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-57x57%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-57x57%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-60x60%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-60x60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-60x60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-72x72%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-72x72%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-76x76%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-76x76%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-76x76%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-App-83.5x83.5%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-Small-50x50%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\Icon-Small-50x50%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcon.appiconset\ItunesArtwork%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Icon_Back.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Media.xcassets\Icon_Back.imageset\back_icon.png" />
+    <ImageAsset Include="Resources\Media.xcassets\ICON_Location_Tab.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Media.xcassets\ICON_Chat_Tab.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Media.xcassets\ICON_Notification_Tab.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Media.xcassets\ICON_Profile_Tab.imageset\Contents.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="ViewControllers\MainController\" />
+    <Folder Include="ViewControllers\LocationController\" />
+    <Folder Include="ViewControllers\ChatController\" />
+    <Folder Include="Model\" />
+    <Folder Include="ViewControllers\NotificationController\" />
+    <Folder Include="ViewControllers\UserProfileController\" />
+    <Folder Include="ViewControllers\MapController\" />
+    <Folder Include="ViewControllers\MapListController\" />
+    <Folder Include="Cells\" />
+    <Folder Include="TableSources\" />
+    <Folder Include="ViewControllers\MessageController\" />
+    <Folder Include="ViewControllers\ProviderProfileController\" />
+    <Folder Include="ViewControllers\ChangePasswordController\" />
+    <Folder Include="ViewControllers\SettingsController\" />
+    <Folder Include="ViewControllers\ConsumerReviewController\" />
+    <Folder Include="ViewControllers\AvailableProductsController\" />
+    <Folder Include="ViewControllers\ProductsDialogPopupController\" />
+    <Folder Include="ViewControllers\ReportProviderDialogController\" />
+    <Folder Include="ViewControllers\ProviderView\" />
+    <Folder Include="ViewControllers\LoadController\" />
+    <Folder Include="ViewControllers\BaseController\" />
+    <Folder Include="Resources\Media.xcassets\Icon_Back.imageset\" />
+    <Folder Include="Resources\Media.xcassets\ICON_Location_Tab.imageset\" />
+    <Folder Include="Resources\Media.xcassets\ICON_Chat_Tab.imageset\" />
+    <Folder Include="Resources\Media.xcassets\ICON_Notification_Tab.imageset\" />
+    <Folder Include="Resources\Media.xcassets\ICON_Profile_Tab.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="View\CustomView.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="BusinessLocator.iOS.csproj" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewControllers\ForgotPasswordController\ForgotPasswordViewController.cs" />
+    <Compile Include="ViewControllers\ForgotPasswordController\ForgotPasswordViewController.designer.cs" />
+    <Compile Include="ViewControllers\LoginController\LoginViewController.cs" />
+    <Compile Include="ViewControllers\LoginController\LoginViewController.designer.cs" />
+    <Compile Include="ViewControllers\SignUpController\SignUpViewController.cs" />
+    <Compile Include="ViewControllers\SignUpController\SignUpViewController.designer.cs" />
+    <Compile Include="ViewControllers\MainController\MainViewController.cs" />
+    <Compile Include="ViewControllers\MainController\MainViewController.designer.cs">
+      <DependentUpon>MainViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\LocationController\LocationViewController.cs" />
+    <Compile Include="ViewControllers\LocationController\LocationViewController.designer.cs">
+      <DependentUpon>LocationViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\ChatController\ChatViewController.cs" />
+    <Compile Include="ViewControllers\ChatController\ChatViewController.designer.cs">
+      <DependentUpon>ChatViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserTypeViewModel.cs" />
+    <Compile Include="ViewControllers\NotificationController\NotificationViewController.cs" />
+    <Compile Include="ViewControllers\NotificationController\NotificationViewController.designer.cs">
+      <DependentUpon>NotificationViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\UserProfileController\UserProfileViewController.cs" />
+    <Compile Include="ViewControllers\UserProfileController\UserProfileViewController.designer.cs">
+      <DependentUpon>UserProfileViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LocationsListViewItemModel.cs" />
+    <Compile Include="ViewControllers\MapListController\MapListViewController.cs" />
+    <Compile Include="ViewControllers\MapListController\MapListViewController.designer.cs">
+      <DependentUpon>MapListViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\MapController\MapViewController.cs" />
+    <Compile Include="ViewControllers\MapController\MapViewController.designer.cs">
+      <DependentUpon>MapViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cells\UsersCell.cs" />
+    <Compile Include="Cells\UsersCell.designer.cs">
+      <DependentUpon>UsersCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSources\UsersTableViewSource.cs" />
+    <Compile Include="TableSources\CustomCollectionSource.cs" />
+    <Compile Include="Model\ChatViewTableItemModel.cs" />
+    <Compile Include="Cells\ChatViewCell.cs" />
+    <Compile Include="Cells\ChatViewCell.designer.cs">
+      <DependentUpon>ChatViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSources\ChatViewTableSource.cs" />
+    <Compile Include="Model\NotificationTableItemModel.cs" />
+    <Compile Include="Cells\NotificationsCell.cs" />
+    <Compile Include="Cells\NotificationsCell.designer.cs">
+      <DependentUpon>NotificationsCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSources\NotificationsViewTableSource.cs" />
+    <Compile Include="ViewControllers\MessageController\MessageViewController.cs" />
+    <Compile Include="ViewControllers\MessageController\MessageViewController.designer.cs">
+      <DependentUpon>MessageViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\ProviderProfileController\ProviderProfileViewController.cs" />
+    <Compile Include="ViewControllers\ProviderProfileController\ProviderProfileViewController.designer.cs">
+      <DependentUpon>ProviderProfileViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\ChangePasswordController\ChangePasswordViewController.cs" />
+    <Compile Include="ViewControllers\ChangePasswordController\ChangePasswordViewController.designer.cs">
+      <DependentUpon>ChangePasswordViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\SettingsController\SettingsViewController.cs" />
+    <Compile Include="ViewControllers\SettingsController\SettingsViewController.designer.cs">
+      <DependentUpon>SettingsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ConsumerViewTableItemModel.cs" />
+    <Compile Include="TableSources\ConsumerTableSource.cs" />
+    <Compile Include="Cells\ConsumerCell.cs" />
+    <Compile Include="Cells\ConsumerCell.designer.cs">
+      <DependentUpon>ConsumerCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\ConsumerReviewController\ConsumerReviewViewController.cs" />
+    <Compile Include="ViewControllers\ConsumerReviewController\ConsumerReviewViewController.designer.cs">
+      <DependentUpon>ConsumerReviewViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ProductsItemModel.cs" />
+    <Compile Include="Cells\ProductsCell.cs" />
+    <Compile Include="Cells\ProductsCell.designer.cs">
+      <DependentUpon>ProductsCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\ProductsDialogPopupController\ProductsDialogPopupViewController.cs" />
+    <Compile Include="ViewControllers\ProductsDialogPopupController\ProductsDialogPopupViewController.designer.cs">
+      <DependentUpon>ProductsDialogPopupViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\AvailableProductsController\AvailableProductsViewController.cs" />
+    <Compile Include="ViewControllers\AvailableProductsController\AvailableProductsViewController.designer.cs">
+      <DependentUpon>AvailableProductsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSources\ProductsCollectionViewSource.cs" />
+    <Compile Include="ViewControllers\ReportProviderDialogController\ReportProviderViewController.cs" />
+    <Compile Include="ViewControllers\ReportProviderDialogController\ReportProviderViewController.designer.cs">
+      <DependentUpon>ReportProviderViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\ProviderView\ProviderMainViewController.cs" />
+    <Compile Include="ViewControllers\ProviderView\ProviderMainViewController.designer.cs">
+      <DependentUpon>ProviderMainViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\LoadController\LoadingScreenViewController.cs" />
+    <Compile Include="ViewControllers\LoadController\LoadingScreenViewController.designer.cs">
+      <DependentUpon>LoadingScreenViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\BaseController\BaseViewController.cs" />
+    <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="View\CustomView.cs" />
+    <Compile Include="View\CustomView.designer.cs" />
+    <Compile Include="CommonClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\back_icon.png" />
+    <BundleResource Include="Resources\ic_magnifier.png" />
+    <BundleResource Include="Resources\ic_person_outline_white_24dp.png" />
+    <BundleResource Include="Resources\chat-tab-icon.png" />
+    <BundleResource Include="Resources\notification_tab_icon.png" />
+    <BundleResource Include="Resources\icon-chat-bubble-30.png" />
+    <BundleResource Include="Resources\icon-marker-30.png" />
+    <BundleResource Include="Resources\icon-pass-fail-30.png" />
+    <BundleResource Include="Resources\icon-notification-30.png" />
+    <BundleResource Include="Resources\icon-user-male-30.png" />
+    <BundleResource Include="Resources\icon-filter-30.png" />
+    <BundleResource Include="Resources\Search.png" />
+    <BundleResource Include="Resources\Filter.png" />
+    <BundleResource Include="Resources\launcher_icon.png" />
+    <BundleResource Include="Resources\marker.png" />
+    <BundleResource Include="Resources\marker-pin.png" />
+    <BundleResource Include="Resources\icon_below.png" />
+    <BundleResource Include="Resources\icon_wine.png" />
+    <BundleResource Include="Resources\user1.jpg" />
+    <BundleResource Include="Resources\user2.jpg" />
+    <BundleResource Include="Resources\user3.png" />
+    <BundleResource Include="Resources\user4.jpg" />
+    <BundleResource Include="Resources\right_arrow.png" />
+    <BundleResource Include="Resources\icon_marker.png" />
+    <BundleResource Include="Resources\icon_call.png" />
+    <BundleResource Include="Resources\icon_account.png" />
+    <BundleResource Include="Resources\discloser_icon.png" />
+    <BundleResource Include="Resources\attachment_pin.png" />
+    <BundleResource Include="Resources\icon-menu-vertical-30.png" />
+    <BundleResource Include="Resources\send_message.png" />
+    <BundleResource Include="Resources\twitter-mask.png" />
+    <BundleResource Include="Resources\Polygon_one.png" />
+    <BundleResource Include="Resources\Polygon_Shape.png" />
+    <BundleResource Include="Resources\icon-unlock-30.png" />
+    <BundleResource Include="Resources\icon-bungalow-30.png" />
+    <BundleResource Include="Resources\lock_open.png" />
+    <BundleResource Include="Resources\edit-icon.png" />
+    <BundleResource Include="Resources\icon_box40.png" />
+    <BundleResource Include="Resources\icon_edit25.png" />
+    <BundleResource Include="Resources\camera.png" />
+    <BundleResource Include="Resources\profile-edit.png" />
+    <BundleResource Include="Resources\User-edit-256.png" />
+    <BundleResource Include="Resources\698873-icon-136-document-edit-512.png" />
+    <BundleResource Include="Resources\msg_bubble.png" />
+    <BundleResource Include="Resources\back_arrow.png" />
+    <BundleResource Include="Resources\business.png" />
+    <BundleResource Include="Resources\weed_leaf.png" />
+    <BundleResource Include="Resources\education.png" />
+    <BundleResource Include="Resources\icon-document-30.png" />
+    <BundleResource Include="Resources\icon-star-30.png" />
+    <BundleResource Include="Resources\icon-envelop-30.png" />
+    <BundleResource Include="Resources\product2.jpg" />
+    <BundleResource Include="Resources\product4.jpg" />
+    <BundleResource Include="Resources\product3.png" />
+    <BundleResource Include="Resources\product7.jpg" />
+    <BundleResource Include="Resources\product6.jpg" />
+    <BundleResource Include="Resources\product1.jpg" />
+    <BundleResource Include="Resources\product5.png" />
+    <BundleResource Include="Resources\filled.png" />
+    <BundleResource Include="Resources\empty.png" />
+    <BundleResource Include="Resources\chosen.png" />
+    <BundleResource Include="Resources\map-marker-4.png" />
+    <BundleResource Include="Resources\icon-remove.png" />
+    <BundleResource Include="Resources\icons_camera96.png" />
+    <BundleResource Include="Resources\icons_document100.png" />
+    <BundleResource Include="Resources\icons_picture100.png" />
+    <BundleResource Include="Resources\icons_picture96.png" />
+    <BundleResource Include="Resources\Icon-cloud.png" />
+    <BundleResource Include="Resources\interface.png" />
+    <BundleResource Include="Resources\bl_loader_icon.png" />
+    <BundleResource Include="Resources\info_window.png" />
+    <BundleResource Include="Resources\weed-leaf.png" />
+    <BundleResource Include="Resources\wine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="pdreview">
+      <Version>2.0.2</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLocator.Shared\BusinessLocator.Shared.csproj">
+      <Project>{07A10796-5BCF-4604-804A-A2F2DA82C93F}</Project>
+      <Name>BusinessLocator.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets')" />
+  <Import Project="..\packages\Xamarin.Google.iOS.Maps.2.5.0\build\Xamarin.Google.iOS.Maps.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.Maps.2.5.0\build\Xamarin.Google.iOS.Maps.targets')" />
+</Project>

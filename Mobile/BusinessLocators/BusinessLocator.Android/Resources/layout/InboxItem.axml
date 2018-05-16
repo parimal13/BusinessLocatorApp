@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="0dip"
+    android:paddingRight="5dip"
+    android:paddingLeft="5dip"
+    android:paddingTop="5dip">
+    <LinearLayout
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip"
+        android:paddingBottom="3dip">
+        <refractored.controls.CircleImageView
+            android:id="@+id/profile"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:src="@drawable/user3"
+            app:civ_border_width="4dp"
+            app:civ_border_color="#f3f3f3"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Rihanna Love the way lie"
+        android:textColor="#040404"
+        android:typeface="sans"
+        android:textSize="14dip"
+        android:textStyle="bold"
+        android:layout_marginTop="10dip"
+        android:layout_alignTop="@+id/thumbnail" />
+    <TextView
+        android:id="@+id/txtmsg"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:textColor="#b8b8b8"
+        android:textSize="13dip"
+        android:maxLength="35"
+   
+        android:maxLines="1"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Just gona stand there and"
+        android:textStyle="normal" />
+    <TextView
+        android:id="@+id/lbltime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/name"
+        android:text="5:45 AM"
+        android:layout_marginRight="5dip"
+        android:textSize="10dip"
+        android:textStyle="normal"
+        android:gravity="right"
+        android:textColor="#333333" />
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:text="11"
+        android:textColor="#FFF"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:layout_below="@id/lbltime"
+        android:background="@drawable/item_count_num"
+        android:layout_marginTop="2dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dip"
+        android:gravity="center" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cecece"
+        android:layout_below="@id/txtmsg"
+        android:layout_marginTop="24dp"
+        android:layout_toRightOf="@id/profile"
+        android:layout_marginLeft="60dp" />
+</RelativeLayout>
